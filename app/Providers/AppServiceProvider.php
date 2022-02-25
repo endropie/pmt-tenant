@@ -13,6 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('http', function ($app) {
+            return new \Illuminate\Http\Client\Factory;
+        });
     }
 }
